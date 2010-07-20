@@ -9,3 +9,7 @@ PLATFORM_PATH="${PROFILE_PATH}/`uname`"
 
 load_conf "${PROFILE_PATH}"
 [ -e "${PLATFORM_PATH}" ] && load_conf "${PLATFORM_PATH}"
+
+##
+# Your previous /Users/nsilli000/.profile file was backed up as /Users/nsilli000/.profile.macports-saved_2010-06-21_at_23:04:14
+##
