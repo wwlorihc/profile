@@ -1,13 +1,11 @@
-[user]
-	name = Mat Schaffer
-	email = mat.schaffer@gmail.com
 [alias]
 	co = checkout
 	ci = commit
 	st = status
 	pu = push
 	pl = pull
-  pub = "!f() { git push ${1:-origin} `git symbolic-ref HEAD`; }; f"
+  gap = add -p
+  pub = "!f() { git push -u ${1:-origin} `git symbolic-ref HEAD`; }; f"
 [web]
 	browser = open
 [gui]
@@ -26,9 +24,8 @@
 	old = red bold
 	new = green bold
 [color "status"]
-	added = yellow
-	changed = green
+	added = green
+	changed = red
 	untracked = cyan
-[github]
-	user = matschaffer
-	token = be13b7d9191d854c7185ad0a5ccd68d6
+[core]
+	excludesfile = ~/.gitignore
