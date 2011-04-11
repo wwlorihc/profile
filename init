@@ -22,19 +22,19 @@ is_home_dir() {
 
 PROFILE_INIT=`readlink ${BASH_ARGV[0]}`
 PROFILE_CORE=`dirname ${PROFILE_INIT}`
-PROFILE_CUSTOM="${PROFILE_CORE}/.."
+CONF_ENABLED="${PROFILE_CORE}/conf.enabled"
+CONF_AVAILABLE="${PROFILE_CORE}/conf.available"
 
 PLATFORM=`uname`
 ORIGINAL_PWD=`pwd`
 
+PLATFORM_ENABLED="${PROFILE_CORE}/${PLATFORM}/conf.enabled"
+PLATFORM_AVAILABLE="${PROFILE_CORE}/${PLATFORM}/conf.available"
+
 cd "${HOME}"
 
 load_conf "${PROFILE_CORE}"
-load_conf "${PROFILE_CORE}/${PLATFORM}"
-
-if ! is_home_dir "${PROFILE_CUSTOM}"; then
-  load_conf "${PROFILE_CUSTOM}"
-  load_conf "${PROFILE_CUSTOM}/${PLATFORM}"
-fi
+load_conf "${CONF_ENABLED}"
+load_conf "${PLATFORM_ENABLED}"
 
 cd "${ORIGINAL_PWD}"
