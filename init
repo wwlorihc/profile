@@ -41,3 +41,6 @@ load_conf "${CONF_ENABLED}"
 load_conf "${PLATFORM_ENABLED}"
 
 cd "${ORIGINAL_PWD}"
+
+# Export this for scripts
+export PROFILE_CORE
