@@ -21,25 +21,32 @@
 " This will affect Ctrl-T and 'autoindent'.
 " Python: 4 spaces
 " C: 8 spaces (pre-existing files) or 4 spaces (new files)
+au BufRead,BufNewFile *.html set shiftwidth=4
 au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
 au BufRead,BufNewFile *.c,*.h set shiftwidth=4
+au BufRead,BufNewFile *.rb, Rakefile set shiftwidth=2
 
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
 " Python: 4 
 " C: 4 
-au BufRead,BufNewFile *.c,*.h set tabstop=4
+" ObjectiveC: 4
+au BufRead,BufNewFile *.m,*.c,*.h set tabstop=4
 au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
+au BufRead,BufNewFile *.rb, Rakefile set tabstop=2
 
 " Replace tabs with the equivalent number of spaces.
 " Also have an autocmd for Makefiles since they require hard tabs.
 " Python: yes
 " C: yes 
 " Makefile: no
+au BufRead,BufNewFile *.html set expandtab
 au BufRead,BufNewFile *.py,*.pyw set expandtab
 au BufRead,BufNewFile *.c,*.h set expandtab
+au BufRead,BufNewFile *.rb, Rakefile set expandtab 
 au BufRead,BufNewFile Makefile* set noexpandtab
 
+au BufRead,BufNewFile *.c,*.m,*.h,*.py,*.rb set number
 " Use the below highlight group when displaying bad whitespace is desired
 highlight BadWhitespace ctermbg=red guibg=red
 
@@ -95,4 +102,21 @@ noremap! <Right> <Esc>
 " Some awesome UI stuff...
 set ruler
 set scrolloff=3
+" Solarized
+let g:solarized_termcolors=16
+set background=dark
+colorscheme solarized
 
+function! ToggleBackground()
+	if (g:solarized_style=="dark")
+		let g:solarized_style="light"
+		colorscheme solarized
+	else
+		let g:solarized_style="dark"
+		colorscheme solarized
+	endif
+endfunction
+command! Togbg call ToggleBackground()
+nnoremap <F5> :call ToggleBackground()<CR>
+inoremap <F5> <ESC>:call ToggleBackground()<CR>a
+vnoremap <F5> <ESC>:call ToggleBackground()<CR>
