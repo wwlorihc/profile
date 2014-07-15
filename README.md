@@ -41,13 +41,6 @@ This list is not guaranteed to be comprehensive, but here are some of the major 
 * Integration with [Autojump](http://github.com/joelthelion/autojump/)
 * Integration with [RVM](http://rvm.beginrescueend.com/)
 
-Planned features
-----------------
-
-* 'link_dotfiles' command that will create symlinks for all the files listed in the dotfiles directory
-* Tab completion for ssh hosts in Solaris/Ubuntu
-* Single-command for SSH key distribution and profile distribution
-
 Contributing
 ------------
 
